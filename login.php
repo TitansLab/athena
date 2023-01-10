@@ -69,16 +69,48 @@
 
         <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
           <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
-            <!-- Form -->
-            <form class="js-validate needs-validation" novalidate>
+            <!-- Form -->   
               <div class="text-center">
                 <div class="mb-5">
                   <h1 class="display-4">Sign in</h1>
                 </div>
               </div>
 
-              <!-- Form -->
-              <div class="mb-4">
+					<p class="text-muted text-center mb-5">
+						access to
+						<span <?php
+								if (isset($_POST['SelectedLoginType'])) { ?> class="font-weight-bold text-secondary">
+							<?php echo $_POST['SelectedLoginType']; ?></span>
+					<?php } else { ?>
+						<span>your</span>
+					<?php } ?> dashboard.
+					</p>
+					<?php if (!isset($_POST['SelectedLoginType'])) { ?>
+						<form method="POST">
+							<div id="loginType" class="d-flex justify-content-center">
+								<div class="mx-2">
+									<button type="submit" class="card border shadow bg-body rounded text-secondary" value="Librarian" name="SelectedLoginType">
+										<img id="imgcard3" src="assets/img/160x160/lib.png" class="card-img rounded mx-auto d-block avatar avatar-xl">
+										<div class="card-body">
+											<h5 class="card-title">Librarian </h3>
+										</div>
+									</button>
+								</div>
+								<div class="mx-2">
+									<button type="submit" class="card border shadow bg-body rounded text-secondary" value="Student" name="SelectedLoginType">
+										<img id="imgcard3" src="assets/img/160x160/stu.png" class="card-img rounded mx-auto d-block avatar avatar-xl">
+										<div class="card-body">
+											<h5 class="card-title">Student</h3>
+										</div>
+									</button>
+								</div>
+							</div>
+						</form>
+					<?php
+					} else {
+					?>
+						<!-- Form -->
+            <div class="mb-4">
                 <label class="form-label" for="signinSrEmail">Your email</label>
                 <input type="email" class="form-control form-control-lg" name="email" id="signinSrEmail" tabindex="1" placeholder="email@address.com" aria-label="email@address.com" required>
                 <span class="invalid-feedback">Please enter a valid email address.</span>
@@ -90,7 +122,7 @@
                 <label class="form-label w-100" for="signupSrPassword" tabindex="0">
                   <span class="d-flex justify-content-between align-items-center">
                     <span>Password</span>
-                    <a class="form-label-link mb-0" href="authentication-reset-password-cover.html">Forgot Password?</a>
+                    <a class="form-label-link mb-0" href="./authentication-reset-password-cover.html">Forgot Password?</a>
                   </span>
                 </label>
 
@@ -110,11 +142,12 @@
               </div>
               <!-- End Form -->
 
-
               <div class="d-grid">
                 <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
               </div>
             </form>
+					<?php } ?>
+				</div>
             <!-- End Form -->
           </div>
         </div>

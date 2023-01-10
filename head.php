@@ -5,10 +5,12 @@
   <title>Athena - LMS</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="logo1.png">
+  <link rel="shortcut icon" href="assets/svg/logos/logo1.png">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 
   <!-- CSS Implementing Plugins -->
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/font/bootstrap-icons.css">
