@@ -16,11 +16,9 @@ if ($_SESSION['role'] != "Texas") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<?php include_once("../head.php"); ?>
 </head>
-
 <body>
 	<?php $nav_role = "book"; ?>
 	<!-- NAVIGATION -->
@@ -68,7 +66,7 @@ if ($_SESSION['role'] != "Texas") {
 						</div>
 					</div>
 					<!-- Tab content -->
-					<?php if (mysqli_num_rows($bqurres)) { ?>
+					<?php if ($brow) { ?>
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="contactsListPane" role="tabpanel" aria-labelledby="contactsListTab">
 								<!-- Card -->

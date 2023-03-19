@@ -81,9 +81,9 @@ if ($_SESSION['role'] != "Texas") {
                                         </div>
                                         <div class="input-group">
                                             <div class="col text-center m-4">
-                                                <!-- <p class="text-center mb-3">
-                                                    <img src="../src/uploads/timetables/<?php echo $row['TimetableImage'] . "?t"; ?>" alt="..." class="img-fluid rounded">
-                                                </p> -->
+                                                <p class="text-center mb-3">
+                                                    <img src="../src/uploads/book_img/<?php echo $row['book_image'] . "?t"; ?>" alt="..." class="img-fluid rounded">
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
