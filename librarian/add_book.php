@@ -76,7 +76,7 @@ $bqurres = mysqli_query($conn, $bqur);
 							</div>
 							<div class="col-auto">
 								<!-- Button -->
-								<input type="file" id="img" name="bimg" class="btn btn-sm" onchange="showPreview(event);" accept="image/jpg, image/jpeg, image/png">
+								<input type="file" id="img" name="bimg" class="btn btn-sm" onchange="showPreview(event);" accept="image/jpg, image/jpeg, image/png" required>
 							</div>
 						</div>
 						<!-- Priview Profile pic  -->
@@ -134,7 +134,7 @@ $bqurres = mysqli_query($conn, $bqur);
 								<div class="col-12 col-md-4">
 									<div class="form-group">
 										<label for="validationCustom01" class="form-label">Author name #1</label>
-										<input type="text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))' maxlength="2" class="form-control" id="validationCustom01" name="aname1" required>
+										<input type="text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))' maxlength="20" class="form-control" id="validationCustom01" name="aname1" required>
 										<div class="valid-feedback">
 											Looks good!
 										</div>
@@ -319,8 +319,6 @@ $bqurres = mysqli_query($conn, $bqur);
 			let s = x.toString();
 			let x1 = s.substr(0, 6);
 			document.getElementById("demo").innerHTML = x1;
-
-
 		}
 	</script>
 </body>
@@ -374,6 +372,6 @@ if (isset($_POST['subbed'])) {
 		echo "<script>alert('Student Not Added')</script>";
 		echo "<script>window.open('add_book.php','_self')</script>";
 	}
-	QRcode::png($bookid, $qrcode, 'H', 4, 4);
+	QRcode::png($bookid, $qrcode, 'H', 10, 1);
 }
 ?>

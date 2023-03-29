@@ -82,6 +82,13 @@ if ($_SESSION['role'] != "Texas") {
                                         <div class="input-group">
                                             <div class="col text-center m-4">
                                                 <p class="text-center mb-3">
+                                                    <img src="../src/uploads/qrcode/<?php echo $row['book_barcode'] . "?t"; ?>" alt="..." class="img-fluid rounded">
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="col text-center m-4">
+                                                <p class="text-center mb-3">
                                                     <img src="../src/uploads/book_img/<?php echo $row['book_image'] . "?t"; ?>" alt="..." class="img-fluid rounded">
                                                 </p>
                                             </div>

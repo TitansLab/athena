@@ -1,8 +1,8 @@
 <!-- NAVIGATION -->
 <style>
 	.navbar-vertical.navbar-expand-md .navbar-brand-img {
-    max-height: 2rem;
-}
+		max-height: 2rem;
+	}
 </style>
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidebar">
 	<div class="container-fluid">
@@ -46,15 +46,24 @@
 					<?php if ($nav_role == "book") {
 						echo "active";
 					} ?>">
-						<i class="fe uil-book-alt"></i> book
+						<i class="fe uil-book-alt"></i> Book
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="../institute_dashboard" class="nav-link 
-					<?php if ($nav_role == "Category") {
+					<a href="../librarian/entry_scan.php" class="nav-link 
+					<?php if ($nav_role == "book_scan") {
 						echo "active";
 					} ?>">
-						<i class="fe uil-archive-alt"></i> Category
+						<i class="fe uil-book-alt"></i> Entry Book
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					<a href="../librarian/borrow_list.php" class="nav-link 
+					<?php if ($nav_role == "borrow") {
+						echo "active";
+					} ?>">
+						<i class="fe uil-archive-alt"></i> Borrow List
 					</a>
 				</li>
 				<li class="nav-item">
@@ -62,7 +71,7 @@
 					<?php if ($nav_role == "Penalty") {
 						echo "active";
 					} ?>">
-						<i class="fe uil-money-withdrawal"></i> Penalty 
+						<i class="fe uil-money-withdrawal"></i> Penalty
 					</a>
 				</li>
 				<li class="nav-item">
@@ -73,7 +82,7 @@
 						<i class="fe uil-book-reader"></i> Issued Book
 					</a>
 				</li>
-				
+
 			</ul>
 			<!-- Divider -->
 			<hr class="navbar-divider my-3">

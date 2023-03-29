@@ -65,7 +65,7 @@ if (isset($_POST['login'])) {
 	$pass = $_POST['password'];
 	$na2 = $_POST['SelectedType'];
 	$hp = mysqli_real_escape_string($conn, trim($pass));
-		if ($na2 =="Li") {
+	if ($na2 == "Li") {
 		$sql = "SELECT * FROM librarian_master WHERE username = '$na'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
@@ -95,7 +95,7 @@ if (isset($_POST['login'])) {
 			$_POST['SelectedLoginType'] = "STUDENT";
 			echo $html;
 		}
-	}	
+	}
 }
 ?>
 
@@ -148,41 +148,33 @@ if (isset($_POST['login'])) {
 						<!-- Form -->
 						<form method="POST">
 							<div class="mb-4">
-								<label class="form-label" for="signinSrEmail">username</label>
+								<label class="form-label" for="signinSrEmail">Username</label>
 								<input type="hidden" name="SelectedType" value="<?php echo substr($_POST['SelectedLoginType'], 0, 2); ?>">
-								<input type="name" class="form-control form-control-lg" name="name" id="signinSrEmail" tabindex="1" required>
+								<input type="name" class="form-control" placeholder="Username" id="signinSrEmail" name="name" required>
 								<span class="invalid-feedback">Please enter a valid email address.</span>
 							</div>
 							<!-- End Form -->
-
-							<!-- Form -->
-							<div class="mb-4">
-								<label class="form-label w-100" for="signupSrPassword" tabindex="0">
-									<span class="d-flex justify-content-between align-items-center">
-										<span>Password</span>
-										<a class="form-label-link mb-0" href="./authentication-reset-password-cover.html">Forgot Password?</a>
-									</span>
-								</label>
-
-								<div class="input-group input-group-merge" data-hs-validation-validate-class>
-									<input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8" data-hs-toggle-password-options='{
-                           "target": "#changePassTarget",
-                           "defaultClass": "bi-eye-slash",
-                           "showClass": "bi-eye",
-                           "classChangeTarget": "#changePassIcon"
-                         }'>
-									<a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;">
-										<i id="changePassIcon" class="bi-eye"></i>
-									</a>
+							<label class="form-label">
+								Password
+							</label>
+							<!-- Password -->
+							<div class="col-12 logo_outer">
+								<div class="input-group mb-4">
+									<input name="password" type="password" value="" class="input form-control" id="password" placeholder="Password" required aria-label="password" aria-describedby="basic-addon1" />
+									<div class="input-group-append ">
+										<span class="input-group-text" style="border-radius: 1px 5px 5px 1px;" onclick="password_show_hide();">
+											<i class="fe uil-eye-slash" id="show_eye"></i>
+											<i class="fe uil-eye d-none" id="hide_eye"></i>
+										</span>
+									</div>
 								</div>
-
-								<span class="invalid-feedback">Please enter a valid password.</span>
 							</div>
-							<!-- End Form -->
-
-							<div class="d-grid">
-								<button type="submit" name="login" value="Login" class="btn btn-primary btn-lg">Sign in</button>
+							<div class="alert alert-danger" id="test" role="alert" style="display: none;">
+								Incorrect username or password!!
 							</div>
+
+							<input type="submit" class="btn btn-lg btn-block btn-primary mb-3" name="login" value="Login">
+
 						</form>
 					<?php } ?>
 				</div>

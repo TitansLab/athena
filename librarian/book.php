@@ -57,7 +57,7 @@ if ($_SESSION['role'] != "Texas") {
 									<ul class="nav nav-tabs nav-overflow header-tabs">
 										<li class="nav-item">
 											<a href="#!" class="nav-link text-nowrap active">
-												All Books <span class="badge rounded-pill bg-soft-secondary"><?php echo $brow ?></span>
+												All Books <span class="badge rounded-pill bg-soft-secondary"><?php echo $brow-1 ?></span>
 											</a>
 										</li>
 									</ul>
