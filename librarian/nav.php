@@ -42,6 +42,14 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a href="../librarian/student.php" class="nav-link 
+					<?php if ($nav_role == "student") {
+						echo "active";
+					} ?>">
+						<i class="fe uil uil-user"></i> Student
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="../librarian/book.php" class="nav-link 
 					<?php if ($nav_role == "book") {
 						echo "active";
@@ -54,7 +62,7 @@
 					<?php if ($nav_role == "book_scan") {
 						echo "active";
 					} ?>">
-						<i class="fe uil-book-alt"></i> Entry Book
+						<i class="fe uil uil-book-medical"></i> Entry Book
 					</a>
 				</li>
 				
@@ -67,7 +75,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="../institute_dashboard" class="nav-link 
+					<a href="../librarian/penalty.php" class="nav-link 
 					<?php if ($nav_role == "Penalty") {
 						echo "active";
 					} ?>">

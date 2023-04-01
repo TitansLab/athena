@@ -62,17 +62,15 @@
 include_once("../config.php");
 if (isset($_POST['login'])) {
 	$na = $_POST['name'];
+	$na = strtoupper($na);
 	$pass = $_POST['password'];
 	$na2 = $_POST['SelectedType'];
-	$hp = mysqli_real_escape_string($conn, trim($pass));
 	if ($na2 == "Li") {
 		$sql = "SELECT * FROM librarian_master WHERE username = '$na'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 		if ($row['username'] == $na and $row['password'] === $pass) {
 			session_start();
-			$u = $row['admin_id'];
-			echo $u;
 			$_SESSION['id'] = $u;
 			$_SESSION['name'] = $row['username'];
 			$_SESSION['role'] = "Texas";
@@ -81,18 +79,18 @@ if (isset($_POST['login'])) {
 			$_POST['SelectedLoginType'] = "Librarian";
 			echo $html;
 		}
-	} else if ($na2 == "ST") {
-		$sql = "SELECT * FROM studentmaster WHERE StudentUserName = '$u'";
+	} else if ($na2 == "St") {
+		$sql = "SELECT * FROM student_master WHERE Username = '$na'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
-		if ($row['StudentUserName'] == $u and $row['StudentPassword'] === $hp) {
+		if ($row['Username'] == $na and $row['spassword'] === $pass) {
 			session_start();
-			$_SESSION['id'] = $u;
-			$_SESSION['name'] = $row['StudentId'];
+			$_SESSION['id'] = $na;
+			$_SESSION['name'] = $row['Username'];
 			$_SESSION['role'] = "Law";
-			echo "<script>window.location.href='../student_dashboard/';</script>";
+			echo "<script>window.location.href='../student/';</script>";
 		} else {
-			$_POST['SelectedLoginType'] = "STUDENT";
+			$_POST['SelectedLoginType'] = "Student";
 			echo $html;
 		}
 	}

@@ -106,6 +106,9 @@ if ($_SESSION['role'] != "Texas") {
 														<a class="list-sort text-muted" data-sort="item-phone">Book Copies</a>
 													</th>
 													<th>
+														<a class="list-sort text-muted" data-sort="item-phone">Copies Available </a>
+													</th>
+													<th>
 														<a class="list-sort text-muted" data-sort="item-score">Date Ddded</a>
 													</th>
 													<th>
@@ -137,6 +140,10 @@ if ($_SESSION['role'] != "Texas") {
 														<td>
 															<!-- Phone -->
 															<span class="item-phone text-reset"><?php echo $row['book_copies']; ?></span>
+														</td>
+														<td>
+															<!-- Phone -->
+															<span class="item-phone text-reset"><?php echo $row['book_ava']; ?></span>
 														</td>
 														<td>
 															<!-- Badge -->

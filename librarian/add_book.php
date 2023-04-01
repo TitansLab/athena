@@ -107,7 +107,7 @@ $bqurres = mysqli_query($conn, $bqur);
 							<div class="col-12 col-md-12">
 								<div class="form-group">
 									<label for="validationCustom01" class="form-label">Book name</label>
-									<input type="text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))' maxlength="30" class="form-control" id="validationCustom01" name="bname" required>
+									<input type="text" maxlength="30" class="form-control" id="validationCustom01" name="bname" required>
 									<div class="valid-feedback">
 										Looks good!
 									</div>

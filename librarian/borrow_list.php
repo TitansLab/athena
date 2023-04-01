@@ -119,7 +119,8 @@ if ($_SESSION['role'] != "Texas") {
                                                 <?php
                                                 $i = 1;
                                                 while ($row = mysqli_fetch_assoc($bqurres)) {
-                                                    $squr = "SELECT * FROM student_master where student_id = '$row[user_id];'";
+                                                    $SID = $row['user_id'];
+                                                    $squr = "SELECT * FROM student_master where Username = '$SID'";
                                                     $squrres = mysqli_query($conn, $squr);
                                                     $squrrow = mysqli_fetch_assoc($squrres); 
                                                     ?>

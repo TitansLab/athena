@@ -155,15 +155,24 @@ if ($_SESSION['role'] != "Texas") {
                         <?php
                         if (isset($_POST['ssearch'])) {
                             $stid = $_POST['sid'];
-                            $squr = "SELECT * FROM student_master where student_id = '$stid'";
+
+                            $squr = "SELECT * FROM student_master where Username = '$stid'";
                             $squrres = mysqli_query($conn, $squr);
                             $squrrow = mysqli_fetch_assoc($squrres);
+                            $pqur = "SELECT * FROM penalty where Student_id = '$stid'";
+                            $pqurres = mysqli_query($conn, $pqur);
+                            $pqurrow = mysqli_fetch_assoc($pqurres);
+                            $bava = $bqurrow['book_ava'];
+                            $bookaval = $bava - 1;
+                            $updatebook = "UPDATE book SET book_ava = '$bookaval' where B_id = '$bookid'";
+                            $updatebookres = mysqli_query($conn, $updatebook);
                             if (mysqli_num_rows($squrres) == 0) {
                                 echo "<script>alert('Student Not Found');</script>";
                             } else { ?>
                                 <form method="POST" autocomplete="off" enctype="multipart/form-data" class="row g-3 needs-validation">
-                                    <input type="text" name="sidm" value="<?php echo $squrrow['Student_id']; ?>" class="form-control" hidden></input>
+                                    <input type="text" name="sidm" value="<?php echo $squrrow['Username']; ?>" class="form-control" hidden></input>
                                     <input type="text" name="bidm" value="<?php echo $bqurrow['B_ID']; ?>" class="form-control " hidden></input>
+                                    <input type="text" name="bookaval" value="<?php echo $bqurrow['book_copies']; ?>" class="form-control " hidden></input>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <!-- Label -->
@@ -179,7 +188,7 @@ if ($_SESSION['role'] != "Texas") {
                                             <label class="form-label">
                                                 Previous Penalty
                                             </label>
-                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $squrrow['Penalty']; ?>" class="form-control " readonly></input>
+                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $pqurrow['penalty_amount']; ?>" class="form-control " readonly></input>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
