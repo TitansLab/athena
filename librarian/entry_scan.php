@@ -159,11 +159,15 @@ if ($_SESSION['role'] != "Texas") {
                             $squr = "SELECT * FROM student_master where Username = '$stid'";
                             $squrres = mysqli_query($conn, $squr);
                             $squrrow = mysqli_fetch_assoc($squrres);
-                            $pqur = "SELECT * FROM penalty where Student_id = '$stid'";
+                            $pqur = "SELECT Student_id,sum(penalty_amount) as penalty_sum FROM penalty group by Student_id having Student_id = '$stid'";
                             $pqurres = mysqli_query($conn, $pqur);
                             $pqurrow = mysqli_fetch_assoc($pqurres);
                             $bava = $bqurrow['book_ava'];
                             $bookaval = $bava - 1;
+                            $bqur = "SELECT * FROM borrow_book where user_id = '$stid'";
+                            $bqurres = mysqli_query($conn, $bqur);
+                            $bqurrow = mysqli_fetch_assoc($bqurres);
+                            $brow = mysqli_num_rows($bqurres);
                             $updatebook = "UPDATE book SET book_ava = '$bookaval' where B_id = '$bookid'";
                             $updatebookres = mysqli_query($conn, $updatebook);
                             if (mysqli_num_rows($squrres) == 0) {
@@ -188,7 +192,7 @@ if ($_SESSION['role'] != "Texas") {
                                             <label class="form-label">
                                                 Previous Penalty
                                             </label>
-                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $pqurrow['penalty_amount']; ?>" class="form-control " readonly></input>
+                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $pqurrow['penalty_sum']; ?>" class="form-control " readonly></input>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -196,7 +200,7 @@ if ($_SESSION['role'] != "Texas") {
                                             <label class="form-label">
                                                 Total Borrowed
                                             </label>
-                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $squrrow['T_borrows']; ?>" id="t_borrow" class="form-control " readonly></input>
+                                            <input type="text" name="pp" id="t_penalty" value="<?php echo $brow ?>" id="t_borrow" class="form-control " readonly></input>
                                         </div>
                                     </div>
 

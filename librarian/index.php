@@ -6,18 +6,14 @@ if ($_SESSION['role'] != "Texas") {
 } else {
 	include_once("../config.php");
 	$_SESSION["userrole"] = "Librarian";
-	$id = $_SESSION['id'];
-	$iqur = "SELECT * FROM librarian_master WHERE admin_id = '$id'";
+	$id = $_SESSION['name'];
+	$iqur = "SELECT * FROM librarian_master WHERE firstname = '$id'";
 	$iqurres = mysqli_query($conn, $iqur);
 	$iqurrow = mysqli_fetch_assoc($iqurres);
 	$bqur = "SELECT * FROM book";
 	$bqurres = mysqli_query($conn, $bqur);
 	$bqurrow = mysqli_fetch_assoc($bqurres);
 	$brow = mysqli_num_rows($bqurres);
-	$cqur = "SELECT * FROM category";
-	$cqurres = mysqli_query($conn, $cqur);
-	$cqurrow = mysqli_fetch_assoc($cqurres);
-	$crow = mysqli_num_rows($cqurres);
 	$pqur = "SELECT * FROM penalty";
 	$pqurres = mysqli_query($conn, $pqur);
 	$pqurrow = mysqli_fetch_assoc($pqurres);
@@ -66,12 +62,6 @@ if ($_SESSION['role'] != "Texas") {
 
 						</div>
 						<div class="col mb-3 ml-n3 ml-md-n2">
-
-							<!-- Pretitle -->
-							<h6 class="header-pretitle">
-								<?php echo $iqurrow['admin_type']; ?>
-							</h6>
-
 							<!-- Title -->
 							<h1 class="header-title">
 								<?php echo $iqurrow['firstname'] ." " . $iqurrow['lastname']; ?>
@@ -123,26 +113,6 @@ if ($_SESSION['role'] != "Texas") {
 											<!-- Time -->
 											<time class="small text-muted" datetime="1988-10-24">
 												<?php echo $brow ?>
-											</time>
-
-										</div>
-									</div> <!-- / .row -->
-								</div>
-								<div class="list-group-item">
-									<div class="row align-items-center">
-										<div class="col">
-
-											<!-- Title -->
-											<h5 class="mb-0">
-												Total Categories
-											</h5>
-
-										</div>
-										<div class="col-auto">
-
-											<!-- Time -->
-											<time class="small text-muted" datetime="2018-10-28">
-												<?php echo $crow ?>
 											</time>
 
 										</div>

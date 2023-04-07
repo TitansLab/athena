@@ -111,20 +111,6 @@ if ($_SESSION['role'] != "Law") {
 											<div class="row align-items-center">
 												<div class="col">
 													<h5 class="mb-0">
-														Ongoing Semester
-													</h5>
-												</div>
-												<div class="col-auto">
-													<h5 class="text-muted mb-0">
-														<?php echo $iqurrow['sem']; ?>
-													</h5>
-												</div>
-											</div>
-										</div>
-										<div class="list-group-item">
-											<div class="row align-items-center">
-												<div class="col">
-													<h5 class="mb-0">
 														Branch
 													</h5>
 												</div>
@@ -168,20 +154,6 @@ if ($_SESSION['role'] != "Law") {
 													<h5 class="text-muted mb-0">
 														<?php echo $iqurrow['Email']; ?>
 													</h5>
-												</div>
-											</div>
-										</div>
-										<div class="list-group-item">
-											<div class="row align-items-center">
-												<div class="col">
-													<h5 class="mb-0">
-														Date Of Birth
-													</h5>
-												</div>
-												<div class="col-auto">
-													<small class="text-muted">
-														<?php echo $iqurrow['StudentDOB']; ?>
-													</small>
 												</div>
 											</div>
 										</div>
