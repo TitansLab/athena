@@ -19,7 +19,7 @@ if ($_SESSION['role'] != "Texas") {
 	<!-- NAVIGATION -->
 	<?php
 	$nav_role = "Student";
-	include_once("../nav.php"); ?>
+	include_once("nav.php"); ?>
 	<!-- MAIN CONTENT -->
 	<div class="main-content">
 		<div class="container-fluid">
@@ -188,6 +188,37 @@ if ($_SESSION['role'] != "Texas") {
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-12 col-md-6">
+								<!-- Email address -->
+								<div class="form-group">
+									<!-- Label -->
+									<label for="validationCustom01" class="form-label">
+										Branch
+									</label>
+									<!-- Input -->
+									<input type="text" maxlength="25" class="form-control" id="validationCustom01" name="sbranch" required>
+									<div class="valid-feedback">
+										Looks good!
+									</div>
+									<div class="invalid-feedback">
+										Incorrect Format or Field is Empty!
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<label for="validationCustom01" class="form-label">
+									Semester
+								</label>
+								<input type="text" onkeypress="return event.charCode>=48 && event.charCode<=57" maxlength="10" id="validationCustom01" class="form-control" name="ssem" required>
+								<div class="valid-feedback">
+									Looks good!
+								</div>
+								<div class="invalid-feedback">
+									Incorrect Format or Field is Empty!
+								</div>
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-12 col-md-12">
 								<!-- Email address -->
 								<div class="form-group">
@@ -206,7 +237,7 @@ if ($_SESSION['role'] != "Texas") {
 								</div>
 							</div>
 						</div>
-						
+
 						<hr class="mt-4 mb-5">
 						<div class="row">
 							<div class="col-12 col-md-6">
@@ -218,7 +249,7 @@ if ($_SESSION['role'] != "Texas") {
 							</div>
 							<div class="col-auto col-6">
 								<div class="input-group input-group-sm mb-3 ">
-									<textarea id="demo" class="form-control fs-2" name="ec" id="myInput1" readonly maxlength="4"></textarea>
+									<textarea id="demo" class="form-control" name="ec" id="myInput1" readonly maxlength="4"></textarea>
 									<button class="btn btn-primary" onclick="cp1()"><i class="fe fe-copy"></i></button>
 								</div>
 							</div>
@@ -342,6 +373,7 @@ if (isset($_POST['subbed'])) {
 	$mname = $_POST['mname'];
 	$lname = $_POST['lname'];
 	$senr = $_POST['senr'];
+	$senr = strtoupper($senr);
 	$scontact = $_POST['scontact'];
 	$semail = $_POST['semail'];
 	$address = $_POST['add'];
@@ -349,6 +381,9 @@ if (isset($_POST['subbed'])) {
 	$susername = $_POST['ec'];
 	$susername = strtoupper($susername);
 	$date = date("Y-m-d");
+	$sem = $_POST['ssem'];
+	$branch = $_POST['sbranch'];
+	$branch = strtoupper($branch);
 
 	$fs_name = $senr . ".png";
 
@@ -361,8 +396,8 @@ if (isset($_POST['subbed'])) {
 	} else {
 		echo "Something went wrong .. !";
 	}
-	$sql = "INSERT INTO student_master (S_id,Username,spassword, firstname, middlename, lastname, contact, Email, saddress, user_image, s_added) 
-	VALUES ('$senr','$susername','$spassword','$fname','$mname','$lname','$scontact','$semail','$address','$fs_name','$date');";
+	$sql = "INSERT INTO student_master (S_id,Username,spassword, firstname, middlename, lastname, contact, Email, saddress, user_image, s_added,branch,sem) 
+	VALUES ('$senr','$susername','$spassword','$fname','$mname','$lname','$scontact','$semail','$address','$fs_name','$date','$branch','$sem');";
 	try {
 		$run = mysqli_query($conn, $sql);
 		if ($run == true) {

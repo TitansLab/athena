@@ -47,6 +47,11 @@ if ($_SESSION['role'] != "Texas") {
 									</h1>
 								</div>
 								<div class="col-auto">
+									<a href="batch_take.php" class="btn btn-primary ml-2">
+										Batch Add Student
+									</a>
+								</div>
+								<div class="col-auto">
 									<a href="add_student.php" class="btn btn-primary ml-2">
 										Add Student
 									</a>
