@@ -106,12 +106,6 @@ if ($_SESSION['role'] != "Law") {
                                                         <a class="list-sort text-muted" data-sort="item-score">Due date</a>
                                                     </th>
                                                     <th>
-                                                        <a class="list-sort text-muted justify-content-center">Book penalty</a>
-                                                    </th>
-                                                    <th>
-                                                        <a class="list-sort text-muted justify-content-center">Action</a>
-                                                    </th>
-                                                    <th>
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -142,16 +136,6 @@ if ($_SESSION['role'] != "Law") {
                                                         <td>
                                                             <!-- Badge -->
                                                             <span class="item-score text-reset"><?php echo $row['due_date']; ?></span>
-                                                        </td>
-                                                        <td>
-                                                            <!-- Badge -->
-                                                            <span class="item-score text-reset"><?php echo $row['book_penalty']; ?></span>
-                                                        </td>
-                                                        <td>
-                                                            <a href="delete_borrow.php?id=<?php echo $row['borrow_book_id']; ?>"
-                                                            onclick="if (! confirm('Are you sure ?')) return false;" class="btn btn-sm btn-danger">
-                                                                Delete
-                                                            </a>
                                                         </td>
                                                         <td class="text-right">
                                                         </td>

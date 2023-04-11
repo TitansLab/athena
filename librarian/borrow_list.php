@@ -94,7 +94,7 @@ if ($_SESSION['role'] != "Texas") {
                                                         <a class="list-sort text-muted">#</a>
                                                     </th>
                                                     <th>
-                                                        <a class="list-sort text-muted" data-sort="item-name">Student Name</a>
+                                                        <a class="list-sort text-muted" data-sort="item-name">Student id</a>
                                                     </th>
                                                     <th>
                                                         <a class="list-sort text-muted" data-sort="item-email">book Id</a>
@@ -104,9 +104,6 @@ if ($_SESSION['role'] != "Texas") {
                                                     </th>
                                                     <th>
                                                         <a class="list-sort text-muted" data-sort="item-score">Due date</a>
-                                                    </th>
-                                                    <th>
-                                                        <a class="list-sort text-muted justify-content-center">Book penalty</a>
                                                     </th>
                                                     <th>
                                                         <a class="list-sort text-muted justify-content-center">Action</a>
@@ -129,7 +126,7 @@ if ($_SESSION['role'] != "Texas") {
                                                             <span class="item-email text-reset"><?php echo $i++; ?></span>
                                                         </td>
                                                         <td>
-                                                            <a class="item-name text-reset"><?php echo $squrrow['firstname']; ?></a>
+                                                            <a class="item-name text-reset"><?php echo $squrrow['Username']; ?></a>
                                                         </td>
                                                         <td>
                                                             <!-- Email -->
@@ -144,13 +141,9 @@ if ($_SESSION['role'] != "Texas") {
                                                             <span class="item-score text-reset"><?php echo $row['due_date']; ?></span>
                                                         </td>
                                                         <td>
-                                                            <!-- Badge -->
-                                                            <span class="item-score text-reset"><?php echo $row['book_penalty']; ?></span>
-                                                        </td>
-                                                        <td>
                                                             <a href="delete_borrow.php?id=<?php echo $row['borrow_book_id']; ?>"
                                                             onclick="if (! confirm('Are you sure ?')) return false;" class="btn btn-sm btn-danger">
-                                                                Delete
+                                                                Return
                                                             </a>
                                                         </td>
                                                         <td class="text-right">

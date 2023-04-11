@@ -8,9 +8,8 @@ if ($_SESSION['role'] != "Texas") {
     $id = $_SESSION['id'];
     $iqur = "SELECT  * FROM librarian_master WHERE admin_id = '$id'";
     $iqurres = mysqli_query($conn, $iqur);
-    $bqur = "SELECT Student_id,sum(penalty_amount) as penalty_sum FROM penalty group by Student_id";
+    $bqur = "SELECT * FROM student_master";
     $bqurres = mysqli_query($conn, $bqur);
-    $bqurrow = mysqli_fetch_assoc($bqurres);
     $brow = mysqli_num_rows($bqurres);
 }
 ?>
@@ -54,7 +53,7 @@ if ($_SESSION['role'] != "Texas") {
                                     <ul class="nav nav-tabs nav-overflow header-tabs">
                                         <li class="nav-item">
                                             <a href="#!" class="nav-link text-nowrap active">
-                                                All Penalty <span class="badge rounded-pill bg-soft-secondary"><?php echo $brow-1 ?></span>
+                                                All Penalty 
                                             </a>
                                         </li>
                                     </ul>
@@ -110,26 +109,24 @@ if ($_SESSION['role'] != "Texas") {
                                                 <?php
                                                 $i = 1;
                                                 while ($row = mysqli_fetch_assoc($bqurres)) {
-                                                    $SID = $row['Student_id'];
-                                                    $squr = "SELECT * FROM student_master where Username = '$SID'";
-                                                    $squrres = mysqli_query($conn, $squr);
-                                                    $squrrow = mysqli_fetch_assoc($squrres); 
-                                                    ?>
+                                                if ($row['Penalty'] == 0) {
+                                                    continue;
+                                                }
+                                                ?>
                                                     <tr>
                                                         <td>
                                                             <span class="item-email text-reset"><?php echo $i++; ?></span>
                                                         </td>
                                                         <td>
-                                                            <a class="item-name text-reset"><?php echo $squrrow['firstname']; ?></a>
+                                                            <a class="item-name text-reset"><?php echo $row['firstname']; ?></a>
                                                         </td>
                                                         <td>
                                                             <!-- Email -->
-                                                            <span class="item-email text-reset"><?php echo $row['penalty_sum']; ?></span>
+                                                            <span class="item-email text-reset"><?php echo $row['Penalty']; ?></span>
                                                         </td>
                                                         <td>
-                                                            <a href="delete_borrow.php?id=<?php echo $row['borrow_book_id']; ?>"
-                                                            onclick="if (! confirm('Are you sure ?')) return false;" class="btn btn-sm btn-danger">
-                                                                Delete
+                                                            <a href="paid_off.php?id=<?php echo $row['S_id']; ?>" onclick="if (! confirm('Are you sure ?')) return false;" class="btn btn-sm btn-danger">
+                                                                Paid Offline
                                                             </a>
                                                         </td>
                                                         <td class="text-right">

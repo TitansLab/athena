@@ -191,29 +191,10 @@ if ($_SESSION['role'] != "Law") {
 								<div class="row align-items-center">
 									<div class="col">
 										<h6 class="text-uppercase text-muted mb-2">
-											Total Return
-										</h6>
-										<span class="h2 mb-0">
-											<?php echo $pqurrow['penalty_sum']; ?>
-										</span>
-									</div>
-									<div class="col-auto">
-										<span class="h2 uil-archive-alt text-muted mb-0"></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6 col-xl">
-						<div class="card">
-							<div class="card-body">
-								<div class="row align-items-center">
-									<div class="col">
-										<h6 class="text-uppercase text-muted mb-2">
 											Total penalty
 										</h6>
 										<span class="h2 mb-0">
-											<?php echo $pqurrow['penalty_sum']; ?>
+											<?php echo $iqurrow['Penalty']; ?>
 										</span>
 									</div>
 									<div class="col-auto">

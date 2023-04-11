@@ -82,14 +82,6 @@
 						<i class="fe uil-money-withdrawal"></i> Penalty
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="../institute_dashboard" class="nav-link 
-					<?php if ($nav_role == "Issued") {
-						echo "active";
-					} ?>">
-						<i class="fe uil-book-reader"></i> Issued Book
-					</a>
-				</li>
 
 			</ul>
 			<!-- Divider -->

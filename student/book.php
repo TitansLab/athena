@@ -136,7 +136,7 @@ if ($_SESSION['role'] != "Law") {
 														</td>
 														<td>
 															<!-- Phone -->
-															<span class="item-phone text-reset"><?php echo $row['book_ava']; ?></span>
+															<span class="item-phone text-reset"><?php echo $row['book_copies']-$row['book_ava']; ?></span>
 														</td>
 														<td>
 															<!-- Badge -->

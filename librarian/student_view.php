@@ -48,9 +48,6 @@ if ($_SESSION['role'] != "Texas") {
                             $bqur = "SELECT * FROM student_master WHERE Username = '$ttid'";
                             $bqurres = mysqli_query($conn, $bqur);
                             $row = mysqli_fetch_assoc($bqurres);
-                            $pqur = "SELECT * FROM penalty where Student_id = '$ttid'";
-                            $pqurres = mysqli_query($conn, $pqur);
-                            $pqurrow = mysqli_fetch_assoc($pqurres);
                             $bqur = "SELECT * FROM borrow_book WHERE user_id = '$ttid'";
                             $bqurres = mysqli_query($conn, $bqur);
                             $bqurrow = mysqli_fetch_assoc($bqurres);
@@ -87,7 +84,7 @@ if ($_SESSION['role'] != "Texas") {
                                             <br>
                                             <div class="input-group">
                                                 <span class="input-group-text col-3 ">Penalty</span>
-                                                <input type="text" value="<?php echo $pqurrow['penalty_amount']; ?>" aria-label="First name" class="form-control" disabled>
+                                                <input type="text" value="<?php echo $row['Penalty']; ?>" aria-label="First name" class="form-control" disabled>
                                             </div>
                                         </div>
                                     </div>

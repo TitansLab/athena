@@ -73,8 +73,8 @@
 						<i class="fe uil uil-book-medical"></i>Requested list
 					</a>
 				</li>
-				
-				
+
+
 				<li class="nav-item">
 					<a href="../student/penalty.php" class="nav-link 
 					<?php if ($nav_role == "Penalty") {
@@ -93,10 +93,17 @@
 			<!-- Navigation -->
 			<ul class="navbar-nav mb-md-4">
 				<li class="nav-item">
-					<a href="student_queries.php" class="nav-link <?php if ($nav_role == "Student Queries") {
-																		echo "active";
-																	} ?>">
+					<a href="query.php" class="nav-link <?php if ($nav_role == "Account related Details") {
+															echo "active";
+														} ?>">
 						<i class="fe fe-user"></i>Queries
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="query_list.php" class="nav-link <?php if ($nav_role == "All querys") {
+																	echo "active";
+																} ?>">
+						<i class="fe fe-user"></i>Queries List
 					</a>
 				</li>
 			</ul>

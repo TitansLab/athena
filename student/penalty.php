@@ -9,16 +9,17 @@ if ($_SESSION['role'] != "Law") {
   $iqur = "SELECT * FROM student_master WHERE Username = '$id'";
   $iqurres = mysqli_query($conn, $iqur);
   $iqurrow = mysqli_fetch_assoc($iqurres);
-  $pqur = "SELECT Student_id,sum(penalty_amount) as penalty_sum FROM penalty group by Student_id having Student_id = '$id'";
-  $pqurres = mysqli_query($conn, $pqur);
-  $pqurrow = mysqli_fetch_assoc($pqurres);
+  
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <?php include_once("../head.php"); ?>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
@@ -73,7 +74,7 @@ if ($_SESSION['role'] != "Law") {
 
               <!-- Title -->
               <h3 class="mb-1">
-                <a href="project-overview.html"><?php echo $pqurrow['penalty_sum']; ?> ₹</a>
+                <p class="mb-1"><?php echo $iqurrow['Penalty']; ?> ₹</p>
               </h3>
 
               <!-- Text -->
@@ -83,18 +84,12 @@ if ($_SESSION['role'] != "Law") {
 
               <!-- Progress -->
               <div class="row align-items-center g-0">
-                <div class="col-auto">
-
-                  <!-- Value -->
-                  <div class="small mr-2">100%</div>
-
-                </div>
+                
                 <div class="col">
 
-                  <!-- Progress -->
-                  <div class="progress progress-sm">
-                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  <input type="textbox" name="name" id="name" value="<?php echo $iqurrow['Username']; ?>" hidden />
+                  <input type="textbox" name="amt" id="amt" value="<?php echo $iqurrow['Penalty']; ?>" hidden />
+
 
                 </div>
               </div> <!-- / .row -->
@@ -102,7 +97,7 @@ if ($_SESSION['role'] != "Law") {
             </div>
             <div class="col-auto">
               <!-- Button -->
-              <a href="#!" class="btn btn-sm btn-primary d-none d-md-inline-block">
+              <a href="#!" class="btn btn-sm btn-primary d-none d-md-inline-block" name="pay" onclick="pay_now()">
                 Click to Pay
               </a>
             </div>
@@ -125,5 +120,42 @@ if ($_SESSION['role'] != "Law") {
   <!-- Delete Popup -->
 
 </body>
+<script>
+  function pay_now() {
+    var name = jQuery('#name').val();
+    var amt = jQuery('#amt').val();
+
+    jQuery.ajax({
+      type: 'post',
+      url: 'payment_process.php',
+      data: "amt=" + amt + "&name=" + name,
+      success: function(result) {
+        var options = {
+          "key": "rzp_test_faWDxSspQkmmAZ",
+          "amount": amt * 100,
+          "currency": "INR",
+          "name": "Athena Corporation",
+          "description": "Test Transaction",
+          "image": "../assets/img/logo.png",
+          "handler": function(response) {
+            jQuery.ajax({
+              type: 'post',
+              url: 'payment_process.php',
+              data: "payment_id=" + response.razorpay_payment_id,
+              success: function(result) {
+                alert('Penalty Paid Successfully');
+                window.location.href='penalty.php';
+              }
+            });
+          }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+      }
+    });
+
+
+  }
+</script>
 
 </html>

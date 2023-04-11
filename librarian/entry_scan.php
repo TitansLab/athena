@@ -175,7 +175,7 @@ if ($_SESSION['role'] != "Texas") {
                             } else { ?>
                                 <form method="POST" autocomplete="off" enctype="multipart/form-data" class="row g-3 needs-validation">
                                     <input type="text" name="sidm" value="<?php echo $squrrow['Username']; ?>" class="form-control" hidden></input>
-                                    <input type="text" name="bidm" value="<?php echo $bqurrow['B_ID']; ?>" class="form-control " hidden></input>
+                                    <input type="text" name="bidm" value="<?php echo $bookid; ?>" class="form-control " hidden></input>
                                     <input type="text" name="bookaval" value="<?php echo $bqurrow['book_copies']; ?>" class="form-control " hidden></input>
                                     <div class="col-md-12">
                                         <div class="form-group">
