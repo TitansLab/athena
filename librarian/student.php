@@ -161,6 +161,9 @@ if ($_SESSION['role'] != "Texas") {
 															<a href="student_view.php?stdid=<?php echo $row['Username']; ?>" class="btn btn-sm btn-info">
 																View
 															</a>
+															<a href="student_delete.php?stdid=<?php echo $row['Username']; ?>" class="btn btn-sm btn-danger">
+																Delete
+															</a>
 														</td>
 														<td class="text-right">
 														</td>

@@ -10,7 +10,6 @@ if ($_SESSION['role'] != "Texas") {
     $iqurres = mysqli_query($conn, $iqur);
     $bqur = "SELECT * FROM borrow_book";
     $bqurres = mysqli_query($conn, $bqur);
-    $bqurrow = mysqli_fetch_assoc($bqurres);
     $brow = mysqli_num_rows($bqurres);
 }
 ?>
@@ -183,7 +182,7 @@ if ($_SESSION['role'] != "Texas") {
 
                     <?php } else { ?>
                         <div class="col-12">
-                            <h1 class="card header-title m-5 p-5"> Oops, No Book registered</h1>
+                            <h1 class="card header-title m-5 p-5"> Oops, No borrows</h1>
                         </div>
                     <?php
                     } ?>

@@ -10,7 +10,6 @@ if ($_SESSION['role'] != "Texas") {
 	$iqurres = mysqli_query($conn, $iqur);
 	$bqur = "SELECT * FROM book";
 	$bqurres = mysqli_query($conn, $bqur);
-	$bqurrow = mysqli_fetch_assoc($bqurres);
 	$brow = mysqli_num_rows($bqurres);
 }
 ?>
@@ -152,6 +151,9 @@ if ($_SESSION['role'] != "Texas") {
 														<td>
 															<a href="book_view.php?bookid=<?php echo $row['book_id']; ?>" class="btn btn-sm btn-info">
 																View
+															</a>
+															<a href="book_delete.php?bookid=<?php echo $row['book_id']; ?>" class="btn btn-sm btn-danger">
+																Delete
 															</a>
 														</td>
 														<td class="text-right">

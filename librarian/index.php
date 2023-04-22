@@ -14,10 +14,6 @@ if ($_SESSION['role'] != "Texas") {
 	$bqurres = mysqli_query($conn, $bqur);
 	$bqurrow = mysqli_fetch_assoc($bqurres);
 	$brow = mysqli_num_rows($bqurres);
-	$pqur = "SELECT * FROM penalty";
-	$pqurres = mysqli_query($conn, $pqur);
-	$pqurrow = mysqli_fetch_assoc($pqurres);
-	$prow = mysqli_num_rows($pqurres);
 }
 ?>
 <!DOCTYPE html>
@@ -72,79 +68,6 @@ if ($_SESSION['role'] != "Texas") {
 				</div> <!-- / .header-body -->
 
 			</div>
-		</div>
-
-		<!-- CONTENT -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-12 col-xl-8">
-
-					<!-- Card -->
-					<div class="card">
-						<div class="card-body">
-
-
-
-						</div>
-					</div>
-
-
-				</div>
-				<div class="col-12 col-xl-4">
-
-					<!-- Card -->
-					<div class="card">
-						<div class="card-body">
-
-							<!-- List group -->
-							<div class="list-group list-group-flush my-n3">
-								<div class="list-group-item">
-									<div class="row align-items-center">
-										<div class="col">
-
-											<!-- Title -->
-											<h5 class="mb-0">
-												Total Books
-											</h5>
-
-										</div>
-										<div class="col-auto">
-
-											<!-- Time -->
-											<time class="small text-muted" datetime="1988-10-24">
-												<?php echo $brow ?>
-											</time>
-
-										</div>
-									</div> <!-- / .row -->
-								</div>
-								<div class="list-group-item">
-									<div class="row align-items-center">
-										<div class="col">
-
-											<!-- Title -->
-											<h5 class="mb-0">
-												Total Penalty User
-											</h5>
-
-										</div>
-										<div class="col-auto">
-
-											<!-- Text -->
-											<small class="text-muted">
-												<?php echo $prow ?>
-											</small>
-
-										</div>
-									</div> <!-- / .row -->
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-				</div>
-			</div> <!-- / .row -->
 		</div>
 	</div> <!-- / .main-content -->
 
